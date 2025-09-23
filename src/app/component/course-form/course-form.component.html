@@ -37,7 +37,7 @@
         <input type="text" placeholder="Enter publish date" formControlName="publishDate">
         <div *ngIf="courseForm.get('publishDate')?.invalid && (courseForm.get('publishDate')?.dirty || courseForm.get('publishDate')?.touched)">
             <small *ngIf="courseForm.get('publishDate')?.hasError('required')">
-                Enrollment count is required
+                Date is required
             </small>
             <small *ngIf="courseForm.get('publishDate')?.hasError('invalidDate')">
                 Date should be in format YYYY-MM-DD
@@ -55,7 +55,7 @@
         </div>
     </div>
 
-    <input type="submit" [disabled]="courseForm.invalid" value="Submit">
+    <input type="submit" value="Submit">
 </form>
 
 <div *ngIf="success"><p style="color: green;">Course added successfully!</p></div>

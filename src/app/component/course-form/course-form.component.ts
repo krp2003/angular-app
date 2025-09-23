@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseServiceService } from 'src/app/services/course-service.service';
 
@@ -44,8 +44,8 @@ export class CourseFormComponent implements OnInit {
   }
 
   dateValidator(control: FormControl): ValidationErrors | null {
-    const datePa = /^\\d{4}-\\d{2}-\\d{2}$/;
-    if(datePa.test(control.value)) {
+    const datePa = /^\d{4}-\d{2}-\d{2}$/;
+    if(!datePa.test(control.value)) {
       return {invalidDate: true};
     }
     return null;
@@ -67,10 +67,13 @@ export class CourseFormComponent implements OnInit {
           })
       }
     }
+    this.markFormGroupTouched(this.courseForm);
   }
 
   markFormGroupTouched(formGroup: FormGroup) {
-    formGroup.get('')?.touched;
+    Object.values(formGroup.controls).forEach(control => {
+      control.markAsTouched();
+    })
   }
 }
 
