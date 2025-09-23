@@ -1,0 +1,61 @@
+<form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label>Course Name: </label>
+        <input type="text" placeholder="Enter Course Name" formControlName="courseName">
+        <div *ngIf="courseForm.get('courseName')?.invalid && (courseForm.get('courseName')?.dirty || courseForm.get('courseName')?.touched)">
+            <small *ngIf="courseForm.get('courseName')?.hasError('required')">
+                Course Name is required
+            </small>
+        </div>
+    </div>
+    <div>
+        <label>Enrollment Count: </label>
+        <input type="text" placeholder="Enter Enrollment Count" formControlName="enrollmentCount">
+        <div *ngIf="courseForm.get('enrollmentCount')?.invalid && (courseForm.get('enrollmentCount')?.dirty || courseForm.get('enrollmentCount')?.touched)">
+            <small *ngIf="courseForm.get('enrollmentCount')?.hasError('required')">
+                Enrollment count is required
+            </small>
+            <small *ngIf="courseForm.get('enrollmentCount')?.hasError('min')">
+                Minimum Enrollment count must be 1  
+            </small>
+        </div>
+    </div>
+    <div>
+        <label>Status: </label>
+        <input type="text" placeholder="Enter Status" formControlName="status">
+        <div *ngIf="courseForm.get('status')?.invalid && (courseForm.get('status')?.dirty || courseForm.get('status')?.touched)">
+            <small *ngIf="courseForm.get('status')?.hasError('required')">
+                Enrollment count is required
+            </small>
+            <small *ngIf="courseForm.get('status')?.hasError('min')">
+                Minimum Enrollment count must be 1  
+            </small>
+        </div>
+    </div>
+    <div>
+        <label>Publish Date: </label>
+        <input type="text" placeholder="Enter publish date" formControlName="publishDate">
+        <div *ngIf="courseForm.get('publishDate')?.invalid && (courseForm.get('publishDate')?.dirty || courseForm.get('publishDate')?.touched)">
+            <small *ngIf="courseForm.get('publishDate')?.hasError('required')">
+                Enrollment count is required
+            </small>
+            <small *ngIf="courseForm.get('publishDate')?.hasError('invalidDate')">
+                Date should be in format YYYY-MM-DD
+            </small>
+        </div>
+    </div>
+
+    <div>
+        <label>Category: </label>
+        <input type="text" placeholder="Enter Category" formControlName="category">
+        <div *ngIf="courseForm.get('category')?.invalid && (courseForm.get('category')?.dirty || courseForm.get('category')?.touched)">
+            <small *ngIf="courseForm.get('category')?.hasError('required')">
+                Enrollment count is required
+            </small>
+        </div>
+    </div>
+
+    <input type="submit" [disabled]="courseForm.invalid" value="Submit">
+</form>
+
+<div *ngIf="success"><p style="color: green;">Course added successfully!</p></div>

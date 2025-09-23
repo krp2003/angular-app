@@ -1,0 +1,20 @@
+<table>
+    <tr>
+        <th>Course Name</th>
+        <th>Enrollment Count</th>
+        <th>Status</th>
+        <th>Publish Date</th>
+        <th>Category</th>
+        <th colspan="3">Action</th>
+    </tr>
+    <tr *ngFor="let c of filteredCourses$ | async">
+        <td>{{c.courseName}}</td>
+        <td>{{c.enrollmentCount}}</td>
+        <td>{{c.status}}</td>
+        <td>{{c.publishDate}}</td>
+        <td>{{c.category}}</td>
+        <td><a routerLink="/view">View</a></td>
+        <td><a routerLink="/update/{{c.id}}">Update</a></td>
+        <td><a routerLink="/delete/{{c.id}}" (click)="deleteCourse(c.id)">Delete</a></td>
+    </tr>
+</table>

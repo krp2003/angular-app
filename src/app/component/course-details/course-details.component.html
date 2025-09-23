@@ -1,0 +1,6 @@
+<h2>Student Details:</h2>
+<div *ngIf="courses$ | async as course">
+<p>Course Name: {{course[0].courseName}}</p>
+<p>Enrolled Students: {{course[0].enrollmentCount}}</p>
+<p>Status: {{course[0].status}}</p>
+</div>

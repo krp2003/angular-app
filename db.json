@@ -1,0 +1,28 @@
+{
+  "courses": [
+    {
+      "id": "4dde",
+      "courseName": "Marathi",
+      "enrollmentCount": "20",
+      "status": "Draft",
+      "publishDate": "2020-12-12",
+      "category": "Language"
+    },
+    {
+      "id": "0a19",
+      "courseName": "English",
+      "enrollmentCount": "22",
+      "status": "Draft",
+      "publishDate": "2021-02-24",
+      "category": "Language 2"
+    },
+    {
+      "id": "f0f3",
+      "courseName": "Hindi",
+      "enrollmentCount": "14",
+      "status": "Draft",
+      "publishDate": "2018-05-23",
+      "category": "Language 3"
+    }
+  ]
+}
